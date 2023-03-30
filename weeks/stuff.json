@@ -1,0 +1,58 @@
+{
+	"storyName": "stuff",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"difficulties": "Hard",
+	"freeplayColor": [
+		155,
+		212,
+		23
+	],
+	"startUnlocked": true,
+	"songs": [
+		[
+			"Giggle",
+			"mexe",
+			[
+				155,
+				212,
+				23
+			]
+		],
+		[
+			"Recursed",
+			"recurser",
+			[
+				155,
+				212,
+				23
+			]
+		],
+		[
+			"Better Off",
+			"m",
+			[
+				155,
+				212,
+				23
+			]
+		],
+		[
+			"Megalo Strike Back",
+			"chara",
+			[
+				155,
+				212,
+				23
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "stuff"
+}

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="NOTE.png">
+<SubTexture name="blue0000" x="309" y="0" width="157" height="154" frameX="-29" frameY="-32" frameWidth="210" frameHeight="213" />
+<SubTexture name="purple hold piece0000" x="208" y="157" width="51" height="45" frameX="-83" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="purple hold end0000" x="157" y="157" width="51" height="64" frameX="-80" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="green hold piece0000" x="208" y="157" width="51" height="45" frameX="-83" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="green hold end0000" x="157" y="157" width="51" height="64" frameX="-80" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="blue hold piece0000" x="208" y="157" width="51" height="45" frameX="-83" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="blue hold end0000" x="157" y="157" width="51" height="64" frameX="-80" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="red hold piece0000" x="208" y="157" width="51" height="45" frameX="-83" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="red hold end0000" x="157" y="157" width="51" height="64" frameX="-80" frameY="-77" frameWidth="210" frameHeight="213" />
+<SubTexture name="purple0000" x="0" y="0" width="154" height="157" frameX="-27" frameY="-26" frameWidth="210" frameHeight="213" />
+<SubTexture name="red0000" x="154" y="0" width="155" height="157" frameX="-34" frameY="-23" frameWidth="210" frameHeight="213" />
+<SubTexture name="green0000" x="0" y="157" width="157" height="154" frameX="-27" frameY="-28" frameWidth="210" frameHeight="213" />
+</TextureAtlas>
