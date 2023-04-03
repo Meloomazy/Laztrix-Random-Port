@@ -69,8 +69,13 @@ end
 function onResume()
     resumeSound('MC')
 end
-
-
+function goodNoteHit(id, direction, noteType, isSustainNote)
+    setSoundVolume('MC',1)
+end
+function noteMiss(id, noteData, noteType, isSustainNote)
+    setSoundVolume('MC',0)
+    setProperty('vocals.volume',1)
+end
 function onCreatePost()
     setProperty('cameraSpeed',99999)
     makeAnimatedLuaSprite('mexeRED', nil, -0, 0)
@@ -79,19 +84,28 @@ function onCreatePost()
     setObjectCamera('mexeRED','camHUD')
     setObjectOrder('mexeRED',getObjectOrder('iconP2')+1)
     setProperty('mexeRED.alpha',0)
+    toColor = rgbToHex(getProperty('dad.healthColorArray'))
+    setProperty('iconP2.color',getColorFromHex('000000'))
     icoY = getProperty('iconP2.y')
+    setHealthBarColors('000000' ,rgbToHex(getProperty('boyfriend.healthColorArray')))
 end
 function opponentNoteHit(id, direction, noteType, isSustainNote)
     if direction == 2 and not isSustainNote then
         setProperty('timeBar.color',getColorFromHex('FF0000'))
-        doTweenColor('timeBar', 'timeBar', 'FFFFFF', 0.2)
+        doTweenColor('timeBar', 'timeBar', rgbToHex(getProperty('dad.healthColorArray')), 0.2)
         if getProperty('health') > 1.7 then
             setProperty('mexeRED.alpha',1)
             doTweenAlpha('mexe','mexeRED',0,0.2)
         end
     end
 end
-function onUpdatePost()
+fr = 0
+function onUpdatePost(elapsed)
+    fr = fr + elapsed
+    if curStep >= 16 and curStep <= 32 then
+        local interpolatedColor = lerpHexColor('000000', rgbToHex(getProperty('dad.healthColorArray')),runHaxeCode "return getVar('guh');")
+        setHealthBarColors(interpolatedColor ,rgbToHex(getProperty('boyfriend.healthColorArray')))
+    end
     if getProperty('health') > 1.7 then
         setProperty('iconP2.x',getProperty('iconP2.x')+getRandomInt(1,3))
         setProperty('iconP2.y',getRandomInt(icoY,icoY + 3))
@@ -108,6 +122,15 @@ function onStepHit()
     if curStep == 5 then
         setProperty('cameraSpeed',1)
     end
+    if curStep == 16 then
+        doTweenColor('iconp2', 'iconP2', 'FFFFFF',1, 'linear')
+        runHaxeCode([[
+			var guhTween:FlxTween;
+	
+			if (guhTween != null) guhTween.cancel();
+			 guhTween = FlxTween.num(0, 1, 1, {ease: FlxEase.linear}, function(num) { setVar('guh',num); });
+		]])
+    end
     if curStep == 1184 then
         doTweenAlpha('rays','rays',0,16)
         doTweenAlpha('desks','desks',0,16)
@@ -119,6 +142,9 @@ function onStepHit()
     if curStep == 1312 then
         doTweenColor('boyfriend', 'boyfriend', '000000', 12, 'linear')
         doTweenColor('dad', 'dad', '000000', 12, 'linear')
+    end
+    if curStep == 1600 then
+        cameraFade('camOther','000000',2,true)
     end
 end
 function onEvent(n,v1,v2)
@@ -143,7 +169,7 @@ function onEvent(n,v1,v2)
             doTweenAlpha('overlay','blackoverlay',0.5,1)
             doTweenAlpha('rays','rays',0.5,1)
             doTweenAlpha('doki','doki',0,1)
-            doTweenAlpha('yuri','yuri',0,1)
+            doTweenAlpha('yuri','yuri',1,1)
         end
         if v1 == '0' then
             doTweenAlpha('desks','desks',0,1)
@@ -169,11 +195,19 @@ function onBeatHit()
         playAnim('sayori','say',true)
     end
 end
-
-function goodNoteHit(id, direction, noteType, isSustainNote)
-    setSoundVolume('MC',1)
+function rgbToHex(array)
+	return string.format('%.2x%.2x%.2x', array[1], array[2], array[3])
 end
-function noteMiss(id, noteData, noteType, isSustainNote)
-    setSoundVolume('MC',0)
-    setProperty('vocals.volume',1)
-end
+function lerpHexColor(fromColor, toColor, t)
+    -- Convert hex color strings to RGB values
+    local fromR, fromG, fromB = tonumber(fromColor:sub(1,2), 16), tonumber(fromColor:sub(3,4), 16), tonumber(fromColor:sub(5,6), 16)
+    local toR, toG, toB = tonumber(toColor:sub(1,2), 16), tonumber(toColor:sub(3,4), 16), tonumber(toColor:sub(5,6), 16)
+    
+    -- Interpolate RGB values
+    local r = fromR + (toR - fromR) * t
+    local g = fromG + (toG - fromG) * t
+    local b = fromB + (toB - fromB) * t
+    
+    -- Convert back to hex color string
+    return string.format("%02X%02X%02X", r, g, b)
+  end

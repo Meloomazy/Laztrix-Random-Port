@@ -10921,36 +10921,6 @@
 				"sectionBeats": 4,
 				"changeBPM": false,
 				"mustHitSection": true
-			},
-			{
-				"gfSection": false,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 144,
-				"sectionBeats": 4,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"gfSection": false,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 144,
-				"sectionBeats": 4,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"gfSection": false,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 144,
-				"sectionBeats": 4,
-				"changeBPM": false,
-				"mustHitSection": true
 			}
 		],
 		"player2": "chara",
@@ -11197,17 +11167,7 @@
 				]
 			],
 			[
-				114223.958333333,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"0.1"
-					]
-				]
-			],
-			[
-				114411.458333333,
+				114218.323586745,
 				[
 					[
 						"Change Scroll Speed",
@@ -11217,17 +11177,47 @@
 				]
 			],
 			[
-				114583.333333333,
+				114416.240253411,
 				[
 					[
 						"Change Scroll Speed",
-						"1",
+						"1.4",
 						"0.1"
 					]
 				]
 			],
 			[
-				114755.208333333,
+				114551.656920078,
+				[
+					[
+						"Change Scroll Speed",
+						"1.4",
+						"0.1"
+					]
+				]
+			],
+			[
+				114687.073586745,
+				[
+					[
+						"Change Scroll Speed",
+						"1.4",
+						"0.1"
+					]
+				]
+			],
+			[
+				114855.823586745,
+				[
+					[
+						"Change Scroll Speed",
+						"1.4",
+						"0.1"
+					]
+				]
+			],
+			[
+				115024.573586745,
 				[
 					[
 						"Change Scroll Speed",
